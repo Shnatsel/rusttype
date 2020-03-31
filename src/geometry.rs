@@ -17,7 +17,7 @@ use crate::nostd_float::FloatExt;
 /// # let t = 0.5; let p0 = point(0.0, 0.0); let p1 = point(0.0, 0.0);
 /// let interpolated_point = p0 + (p1 - p0) * t;
 /// ```
-#[derive(Copy, Clone, Debug, PartialOrd, Ord, PartialEq, Eq, Hash)]
+#[derive(Copy, Clone, Debug, PartialOrd, Ord, PartialEq, Eq, Hash, Default)]
 pub struct Point<N> {
     pub x: N,
     pub y: N,
@@ -149,7 +149,7 @@ pub struct Line {
 }
 /// A quadratic Bezier curve, starting at `p[0]`, ending at `p[2]`, with control
 /// point `p[1]`.
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd)]
+#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Default)]
 pub struct Curve {
     pub p: [Point<f32>; 3],
 }

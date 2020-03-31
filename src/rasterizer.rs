@@ -86,7 +86,7 @@ impl SliceUp for Line {
     }
 }
 
-type CurveIter = arrayvec::IntoIter<[Curve; 2]>;
+type CurveIter = tinyvec::ArrayVecIterator<[Curve; 2]>;
 
 struct CurveSliceIter {
     curve: Curve,
@@ -102,7 +102,7 @@ impl Iterator for CurveSliceIter {
     fn next(&mut self) -> Option<Self::Item> {
         use crate::geometry::solve_quadratic_real as solve;
         use crate::geometry::RealQuadraticSolution as RQS;
-        use arrayvec::ArrayVec;
+        use tinyvec::ArrayVec;
         if self.i >= self.planes.count {
             return None;
         }
